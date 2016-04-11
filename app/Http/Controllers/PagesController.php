@@ -15,4 +15,8 @@ class PagesController extends Controller
         $leases = Lease::all();
         return view('pages.home', ['leases' => $leases]);
     }
+
+    public function about(){
+        return view('pages.about');
+    }
 }

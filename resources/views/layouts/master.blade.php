@@ -16,14 +16,22 @@
             <div class="nav-wrapper container">
                 <a href="/" class="brand-logo left">Rent.it</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/cities/index">Cities</a></li>
-                    <li><a href="/leases/index">Leases</a></li>
-                    <li><a class="dropdown-button" href="#!" data-activates="users-dropdown">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+                    <li><a href="/cities">Cities</a></li>
+                    <li><a href="/leases">Leases</a></li>
+                    @if(Auth::check())
+                        <li><a class="dropdown-button" href="#!" data-activates="logged-dropdown">{{ Auth::user()->name }}<i class="material-icons right">arrow_drop_down</i></a></li>
+                    @else
+                        <li><a class="dropdown-button" href="#!" data-activates="users-dropdown">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+                    @endif
                 </ul>
             </div>
             <ul id="users-dropdown" class="dropdown-content">
                 <li><a href="/users/create">Join</a></li>
                 <li><a href="/users/login">Log In</a></li>
+            </ul>
+            <ul id="logged-dropdown" class="dropdown-content">
+                <li><a href="/users/home">Home</a></li>
+                <li><a href="/users/logout">Log Out</a></li>
             </ul>
         </nav>
     </header>

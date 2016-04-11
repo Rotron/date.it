@@ -28,7 +28,14 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/', 'PagesController@home');
 
-    Route::get('/about', function(){
-        return view('pages.about');
-    });
+    Route::get('/about', 'PagesController@about');
+
+    Route::get('/leases', 'LeasesController@index');
+
+    Route::get('/users/create', 'UsersController@create');
+    Route::post('/users/save', 'UsersController@save');
+    Route::get('/users/home', 'UsersController@home');
+    Route::get('/users/login', 'UsersController@login');
+    Route::post('/users/dologin', 'UsersController@dologin');
+    Route::get('/users/logout', 'UsersController@logout');
 });
