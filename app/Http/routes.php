@@ -24,14 +24,17 @@
 */
 
 Route::group(['middleware' => ['web']], function () {
-    //
-
+    // Pages related routes
     Route::get('/', 'PagesController@home');
-
     Route::get('/about', 'PagesController@about');
 
+    // Leases related routes
     Route::get('/leases', 'LeasesController@index');
 
+    // Cities related routes
+    Route::get('/cities', 'CitiesController@index');
+
+    // User related routes
     Route::get('/users/create', 'UsersController@create');
     Route::post('/users/save', 'UsersController@save');
     Route::get('/users/home', 'UsersController@home');

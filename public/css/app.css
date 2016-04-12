@@ -2571,7 +2571,6 @@ nav ul a span.badge {
 /* This is needed for some mobile phones to display the Google Icon font properly */
 .material-icons {
   text-rendering: optimizeLegibility;
-  -webkit-font-feature-settings: 'liga';
   font-feature-settings: 'liga'; }
 
 @font-face {
@@ -6416,7 +6415,6 @@ a.waves-effect .waves-ripple {
 
 .materialboxed {
   display: block;
-  cursor: -webkit-zoom-in;
   cursor: zoom-in;
   position: relative;
   transition: opacity .4s; }
@@ -6426,7 +6424,6 @@ a.waves-effect .waves-ripple {
       opacity: .8; }
 
 .materialboxed.active {
-  cursor: -webkit-zoom-out;
   cursor: zoom-out; }
 
 #materialbox-overlay {
@@ -8597,5 +8594,19 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 @media (min-height: 40.125em) {
   .picker--time .picker__box {
     margin-bottom: 5em; } }
+
+body {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100vh;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+
+main {
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto; }
 
 /*# sourceMappingURL=app.css.map */

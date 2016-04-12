@@ -24,7 +24,7 @@ $factory->define(App\Lease::class, function(Faker\Generator $faker){
     return [
         'name' => $faker->name,
         'address' => $faker->address,
-        'city_id' => rand(0, 3),
+        'city_id' => rand(0, 9),
         'size' => rand(18, 500),
         'rooms' => rand(1, 15),
         'price' => rand(200, 2000),
@@ -32,4 +32,13 @@ $factory->define(App\Lease::class, function(Faker\Generator $faker){
         'description' => $faker->text(100),
         'location' => '0'
     ];
+});
+
+$factory->define(App\City::class, function(\Faker\Generator $faker){
+    $address = new Faker\Provider\en_GB\Address($faker);
+   return [
+       'name' => $address->city(),
+       'location' => $address->latitude().','.$address->longitude(),
+       'description' => $faker->text(200)
+   ];
 });

@@ -9,4 +9,8 @@ class Lease extends Model
     //
 
     protected $fillable = ['name', 'address', 'city_id', 'size', 'rooms', 'price', 'charges', 'description', 'location'];
+
+    public function city() {
+        return $this->hasOne('App\City');
+    }
 }

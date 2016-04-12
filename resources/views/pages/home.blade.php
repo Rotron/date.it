@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             @foreach($leases as $lease)
-                <div class="col s12 m6">
+                <div class="col s12 m12 l6">
                     <div class="card">
                         <div class="card-image">
                             <div class="card-image">
