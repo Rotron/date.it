@@ -23,6 +23,7 @@ class CreateLeasesTable extends Migration
             $table->integer('charges');
             $table->string('description');
             $table->string('location');
+            $table->date('occupied_since');
             $table->timestamps();
         });
     }

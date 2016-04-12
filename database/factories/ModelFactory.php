@@ -21,6 +21,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 });
 
 $factory->define(App\Lease::class, function(Faker\Generator $faker){
+    $rand = rand(0,1);
     return [
         'name' => $faker->name,
         'address' => $faker->address,
@@ -30,6 +31,7 @@ $factory->define(App\Lease::class, function(Faker\Generator $faker){
         'price' => rand(200, 2000),
         'charges' => rand(50, 500),
         'description' => $faker->text(100),
+        'occupied_since' => ($rand ? '' : $faker->date('Y-m-d')),
         'location' => '0'
     ];
 });

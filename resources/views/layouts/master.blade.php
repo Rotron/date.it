@@ -68,7 +68,10 @@
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
     <script src="/js/all.js"></script>
     <script>
-        $('.slider').slider();
+        $(document).ready(function(){
+            $('.parallax').parallax();
+            $('.slider').slider();
+        });
     </script>
 </body>
 </html>

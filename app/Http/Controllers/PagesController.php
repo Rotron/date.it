@@ -12,7 +12,7 @@ class PagesController extends Controller
     //
 
     public function home(){
-        $leases = Lease::all();
+        $leases = Lease::all()->take(6);
         return view('pages.home', ['leases' => $leases]);
     }
 
