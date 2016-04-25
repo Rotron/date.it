@@ -26,6 +26,23 @@
                     <input type="email" name="email" id="email">
                     <label for="email">E-Mail</label>
                 </div>
+                <div class="input-field col s6">
+                    <select name="sex">
+                        <option value="" disabled selected>Please choose an option</option>
+                        <option value="m">A guy</option>
+                        <option value="f">A girl</option>
+                    </select>
+                    <label>You are:</label>
+                </div>
+                <div class="input-field col s6">
+                    <select name="looking_for">
+                        <option value="" disabled selected>Please choose an option</option>
+                        <option value="m">A guy</option>
+                        <option value="f">A girl</option>
+                        <option value="b">Both</option>
+                    </select>
+                    <label>Looking for:</label>
+                </div>
                 <div class="file-field input-field col s12">
                     <div class="btn">
                         <span>

@@ -20,6 +20,26 @@ class CitiesController extends Controller
     }
 
     public function save(Request $request) {
+        $city = City::create([
+            'name' => $request->input('name'),
+            'description' => $request->input('description'),
+            'location' => $request->input('city-lat').','.$request->input('city-lon')
+        ]);
+
+        $picture = $request->file('picture');
+        $picture->move(public_path().'/img/cities/', $request->input('name').'.jpg');
+        $city->picture = $request->input('name');
+        $city->save();
+
+        return redirect('/admin/home');
+    }
+
+    public function modify($id){
+        $city = City::find($id);
+        return view('cities.modify', ['city' => $city]);
+    }
+
+    public function update(Request $request) {
         
     }
 }

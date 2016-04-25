@@ -79,12 +79,15 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript" src='http://maps.google.com/maps/api/js?libraries=places&key=AIzaSyC0sG784JzY4pKHLAxdvCS-yweQBGUwOeU'></script>
     <script src="/js/all.js"></script>
     <script>
         $(document).ready(function(){
             $('.parallax').parallax();
             $('.slider').slider();
+            $('select').material_select();
         });
+        @yield('script')
     </script>
 </body>
 </html>

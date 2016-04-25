@@ -28,9 +28,6 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/', 'PagesController@home');
     Route::get('/about', 'PagesController@about');
 
-    // Leases related routes
-    Route::get('/leases', 'LeasesController@index');
-
     // Cities related routes
     Route::get('/cities', 'CitiesController@index');
 
@@ -47,5 +44,9 @@ Route::group(['middleware' => ['web']], function () {
     
     Route::group(['middleware' => 'admin'], function(){
         Route::get('/admin/home', 'AdminController@home');
+
+        Route::get('/cities/create', 'CitiesController@create');
+        Route::post('/cities/save', 'CitiesController@save');
+        Route::get('/cities/modify/{id}', 'CitiesController@modify');
     });
 });
