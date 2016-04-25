@@ -8,6 +8,7 @@
     <title>Date.it | @yield('title')</title>
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
@@ -56,8 +57,8 @@
                 <div class="col l6 s12">
                     <h5 class="white-text">Made By Lucien LE FOLL</h5>
                     <p class="grey-text text-lighten-4">
-                        This website is made as a student project, for my studies. It offers a complete management solution for rentals.
-                        Don't hesitate to get in touch with me if this application interests you, don't hesitate to contact me, so we can do
+                        This website is made as a student project, for my studies.
+                        Don't hesitate to get in touch with me if this application interests you, so we can do
                         business together.
                     </p>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\City;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,17 +18,21 @@ class UsersController extends Controller
     }
 
     public function create() {
-        return view('users.create');
+        $cities = City::all();
+        return view('users.create', ['cities' => $cities]);
     }
 
     public function save(Request $request) {
         $user = User::create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
             'password' => Hash::make($request->input('password')),
             'admin' => false
         ]);
+
+        $picture = $request->file('picture');
+        $picture->move(public_path() . '/img/users/', $user->id.'.jpg');
+        $user->picture = $user->id.'.jpg';
 
         $user->save();
         Auth::login($user);

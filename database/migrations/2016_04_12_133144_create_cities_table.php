@@ -17,6 +17,7 @@ class CreateCitiesTable extends Migration
             $table->string('name');
             $table->string('location');
             $table->text('description');
+            $table->string('picture');
             $table->timestamps();
         });
     }
