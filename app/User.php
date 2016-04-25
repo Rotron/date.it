@@ -27,4 +27,12 @@ class User extends Authenticatable
     public function city() {
         return $this->hasOne('App\City');
     }
+
+    public function lease() {
+        return $this->hasOne('App\Lease', 'tenant_id');
+    }
+
+    public function leases() {
+        return $this->hasMany('App\Lease', 'landlord_id');
+    }
 }

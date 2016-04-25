@@ -37,13 +37,12 @@ Route::group(['middleware' => ['web']], function () {
     // User related routes
     Route::get('/users/create', 'UsersController@create');
     Route::post('/users/save', 'UsersController@save');
-    Route::get('/users/home', 'UsersController@home');
     Route::get('/users/login', 'UsersController@login');
-    Route::post('/users/dologin', 'UsersController@dologin');
+    Route::post('/users/login', 'UsersController@dologin');
     Route::get('/users/logout', 'UsersController@logout');
 
     Route::group(['middleware' => 'auth'], function(){
-        Route::get('/leases/new', 'LeasesController@new');
+        Route::get('/users/home', 'UsersController@home');
     });
     
     Route::group(['middleware' => 'admin'], function(){

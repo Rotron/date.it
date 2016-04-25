@@ -20,29 +20,6 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Lease::class, function(Faker\Generator $faker){
-    $rand = rand(0,1);
-    if($rand){
-        $rand2 = true;
-    }
-    else {
-        $rand2 = rand(0, 1);
-    }
-    return [
-        'name' => $faker->name,
-        'address' => $faker->address,
-        'city_id' => rand(0, 9),
-        'size' => rand(18, 500),
-        'rooms' => rand(1, 15),
-        'price' => rand(200, 2000),
-        'charges' => rand(50, 500),
-        'description' => $faker->text(100),
-        'occupied_since' => ($rand ? '' : $faker->date('Y-m-d')),
-        'valid' => ($rand2 ? true : false),
-        'location' => '0'
-    ];
-});
-
 $factory->define(App\City::class, function(\Faker\Generator $faker){
     $address = new Faker\Provider\en_GB\Address($faker);
     return [

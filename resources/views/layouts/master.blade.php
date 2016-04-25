@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Rent.it | @yield('title')</title>
+    <title>Date.it | @yield('title')</title>
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
@@ -14,10 +14,9 @@
     <header>
         <nav>
             <div class="nav-wrapper container">
-                <a href="/" class="brand-logo left">Rent.it</a>
+                <a href="/" class="brand-logo left">Date.it</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/cities">Cities</a></li>
-                    <li><a href="/leases">Leases</a></li>
                     @if(Auth::check())
                         <li>
                             <a class="dropdown-button" href="#!" data-activates="logged-dropdown">
