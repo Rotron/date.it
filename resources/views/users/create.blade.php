@@ -20,6 +20,11 @@
                 </div>
 
                 <div class="input-field col s12">
+                    <input type="tel" name="phone" id="phone">
+                    <label for="phone">Telephone</label>
+                </div>
+
+                <div class="input-field col s12">
                     <input type="email" name="email" id="email">
                     <label for="email">E-Mail</label>
                 </div>

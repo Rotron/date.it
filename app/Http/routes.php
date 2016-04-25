@@ -41,4 +41,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/users/login', 'UsersController@login');
     Route::post('/users/dologin', 'UsersController@dologin');
     Route::get('/users/logout', 'UsersController@logout');
+
+    Route::group(['middleware' => 'auth'], function(){
+        Route::get('/leases/new', 'LeasesController@new');
+    });
+    
+    Route::group(['middleware' => 'admin'], function(){
+        Route::get('/admin/home', 'AdminController@home');
+    });
 });

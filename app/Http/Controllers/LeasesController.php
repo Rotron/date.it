@@ -14,4 +14,8 @@ class LeasesController extends Controller
         $leases = Lease::all();
         return view('leases.index', ['leases' => $leases]);
     }
+
+    public function new() {
+        return view('leases.new');
+    }
 }

@@ -24,6 +24,7 @@ class CreateLeasesTable extends Migration
             $table->string('description');
             $table->string('location');
             $table->date('occupied_since');
+            $table->boolean('valid');
             $table->timestamps();
         });
     }
