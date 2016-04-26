@@ -87,6 +87,7 @@
             $('.parallax').parallax();
             $('.slider').slider();
             $('select').material_select();
+            $('.modal-trigger').leanModal();
         });
         @yield('script')
     </script>

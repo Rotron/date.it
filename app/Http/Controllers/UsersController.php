@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\City;
 use App\Hobby;
 use App\User;
+use App\Message;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -17,7 +18,9 @@ class UsersController extends Controller
         $user = Auth::user();
         $hobbies = Hobby::all();
         $cities = City::all();
-        return view('users.home', ['user' => $user, 'hobbies' => $hobbies, 'cities' => $cities]);
+        $messages_sent = $user->messages_sent();
+        $messages_received = $user->messages_received();
+        return view('users.home', ['user' => $user, 'hobbies' => $hobbies, 'cities' => $cities, 'messages_sent' => $messages_sent, 'messages_received' => $messages_received]);
     }
 
     public function create() {

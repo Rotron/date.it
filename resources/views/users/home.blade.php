@@ -6,6 +6,38 @@
     <div class="row">
         <div class="col s12 m3">
             <h2>Messages</h2>
+            <h3>Received</h3>
+            @foreach($messages_received as $message)
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content">
+                        <h5>{{ $message->topic }}</h5>
+                        <p>
+                            {{ $message->body }}
+                        </p>
+                    </div>
+                    <div class="card-action">
+                        From : <a class="right" href="/users/profile/{{ $message->sender()->id }}">{{ $message->sender()->name }}</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <h3>Sent</h3>
+            @foreach($messages_sent as $message)
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <h5>{{ $message->topic }}</h5>
+                            <p>
+                                {{ $message->body }}
+                            </p>
+                        </div>
+                        <div class="card-action">
+                            To : <a class="right" href="/users/profile/{{ $message->receiver()->id }}">{{ $message->receiver()->name }}</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
         <div class="col s12 m3">
             <h2>Dates</h2>

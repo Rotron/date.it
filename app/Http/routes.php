@@ -46,6 +46,8 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::post('/hobbies/addToUser', 'HobbiesController@addToUser');
         Route::get('/hobbies/removeFromUser/{id}', 'HobbiesController@removeFromUser');
+
+        Route::post('/messages/send', 'MessagesController@send');
     });
     
     Route::group(['middleware' => 'admin'], function(){

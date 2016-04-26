@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\Auth;
 
 class User extends Authenticatable
 {
@@ -30,5 +31,17 @@ class User extends Authenticatable
 
     public function hobby() {
         return $this->belongsToMany('App\Hobby');
+    }
+
+    public function messages_sent() {
+        $messages = Message::where('from', $this->id)->get();
+
+        return $messages;
+    }
+
+    public function messages_received() {
+        $messages = Message::where('to', $this->id)->get();
+
+        return $messages;
     }
 }
