@@ -42,7 +42,7 @@
     </div>
 @stop
 
-@section('script')
+@section('scripts')
     <?php
         $loc = explode(',', $city->location);
     ?>

@@ -43,7 +43,7 @@ class UsersController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'sex' => $request->input('sex'),
-            'city_id' => $request->input('city_id'),
+            'city_id' => ($request->input('city_id') ? $request->input('city_id') : 1),
             'looking_for' => $request->input('looking_for'),
             'password' => Hash::make($request->input('password')),
             'admin' => false
