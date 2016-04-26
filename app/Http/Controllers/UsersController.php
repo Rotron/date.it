@@ -105,7 +105,6 @@ class UsersController extends Controller
         }
         else {
             $potentials = User::where('looking_for', $user->sex)
-                                ->orwhere('looking_for', 'b')
                                 ->where('sex', $user->looking_for)
                                 ->where('city_id', $user->city_id)
                                 ->get();
