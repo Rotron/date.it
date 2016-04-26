@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\City;
+use App\Hobby;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,7 +15,9 @@ class UsersController extends Controller
 
     public function home() {
         $user = Auth::user();
-        return view('users.home', ['user' => $user]);
+        $hobbies = Hobby::all();
+        $cities = City::all();
+        return view('users.home', ['user' => $user, 'hobbies' => $hobbies, 'cities' => $cities]);
     }
 
     public function create() {
@@ -39,6 +42,21 @@ class UsersController extends Controller
         $user->save();
         Auth::login($user);
 
+        return redirect('/users/home');
+    }
+
+    public function update(Request $request){
+        $user = Auth::user();
+        $user->name = $request->input('name');
+        $user->city_id = $request->input('city_id');
+        $user->sex = $request->input('sex');
+        $user->looking_for = $request->input('looking_for');
+        if($request->file('picture')){
+            $picture = $request->file('picture');
+            $picture->move(public_path() . '/img/users/', $user->id.'.jpg');
+            $user->picture = $user->id.'.jpg';
+        }
+        $user->save();
         return redirect('/users/home');
     }
 

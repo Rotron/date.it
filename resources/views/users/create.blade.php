@@ -30,7 +30,7 @@
                     <select name="city_id" id="city_id">
                         <option value="" disabled selected>Please choose your city</option>
                         @foreach($cities as $city)
-                            <option value="{{ $city->id }}" data-icon="/img/cities/{{ $city->picture }}.jpg" class="circle">
+                            <option value="{{ $city->id }}" data-icon="/img/cities/{{ $city->picture }}" class="circle">
                                 {{ $city->name }}
                             </option>
                         @endforeach

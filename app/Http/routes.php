@@ -42,6 +42,10 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/users/home', 'UsersController@home');
         Route::get('/users/discover', 'UsersController@discover');
         Route::get('/users/profile/{id}', 'UsersController@profile');
+        Route::post('/users/update', 'UsersController@update');
+
+        Route::post('/hobbies/addToUser', 'HobbiesController@addToUser');
+        Route::get('/hobbies/removeFromUser/{id}', 'HobbiesController@removeFromUser');
     });
     
     Route::group(['middleware' => 'admin'], function(){

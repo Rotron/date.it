@@ -6,6 +6,7 @@ use App\Hobby;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class HobbiesController extends Controller
 {
@@ -53,5 +54,19 @@ class HobbiesController extends Controller
         $hobby->delete();
 
         return redirect('/admin/home');
+    }
+
+    public function addToUser(Request $request){
+        $user = Auth::user();
+        $user->hobby()->attach($request->input('hobby_id'));
+
+        return redirect('/users/home');
+    }
+
+    public function removeFromUser($id){
+        $user = Auth::user();
+        $user->hobby()->detach($id);
+
+        return redirect('/users/home');
     }
 }
