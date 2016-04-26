@@ -60,4 +60,27 @@ class UsersController extends Controller
 
         return redirect('/');
     }
+
+    public function discover() {
+        $user = Auth::user();
+        if($user->looking_for == 'b'){
+            $potentials = User::where('looking_for', $user->sex)
+                                ->orwhere('looking_for', 'b')
+                                ->where('city_id', $user->city_id)
+                                ->get();
+        }
+        else {
+            $potentials = User::where('looking_for', $user->sex)
+                                ->orwhere('looking_for', 'b')
+                                ->where('sex', $user->looking_for)
+                                ->where('city_id', $user->city_id)
+                                ->get();
+        }
+        return view('users.discover', ['potentials' => $potentials]);
+    }
+
+    public function profile($id) {
+        $user = User::find($id);
+        return view('users.profile', ['user' => $user]);
+    }
 }

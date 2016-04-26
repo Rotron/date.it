@@ -19,6 +19,7 @@
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     <li><a href="/cities">Cities</a></li>
                     @if(Auth::check())
+                        <li><a href="/users/discover">Show me some people!</a></li>
                         <li>
                             <a class="dropdown-button" href="#!" data-activates="logged-dropdown">
                                 <i class="material-icons left">person_pin</i>

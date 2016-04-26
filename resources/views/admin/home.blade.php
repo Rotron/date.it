@@ -6,7 +6,7 @@
     <div class="row">
         <h2>Latest Users</h2>
         @foreach($users as $user)
-            <div class="col s2">
+            <div class="col s6 m3">
                 <div class="card">
                     <div class="card-image">
                         <img src="/img/users/{{ $user->picture }}">
@@ -21,7 +21,27 @@
     </div>
     <div class="row">
         <div class="col s12 m6">
-            <h2>Stats</h2>
+            <h2>Hobbies</h2>
+            @foreach($hobbies as $hobby)
+                <div class="col m6 s12">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="/img/hobbies/{{ $hobby->picture }}">
+                            <span class="card-title">{{ $hobby->name }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ $hobby->description }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/hobbies/modify/{{ $hobby->id }}">Modify</a>
+                            <a href="/hobbies/delete/{{ $hobby->id }}">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+            <a class="btn-floating btn-large waves-effect waves-light red" href="/hobbies/create">
+                <i class="material-icons">add</i>
+            </a>
         </div>
         <div class="col s12 m6">
             <h2>Cities</h2>
@@ -30,7 +50,7 @@
                     <div class="col m6 s12">
                         <div class="card">
                             <div class="card-image">
-                                <img src="/img/cities/{{ $city->picture }}.jpg">
+                                <img src="/img/cities/{{ $city->picture }}">
                                 <span class="card-title">{{ $city->name }}</span>
                             </div>
                             <div class="card-content">
@@ -38,6 +58,7 @@
                             </div>
                             <div class="card-action">
                                 <a href="/cities/modify/{{ $city->id }}">Modify</a>
+                                <a href="/cities/delete/{{ $city->id }}">Delete</a>
                             </div>
                         </div>
                     </div>

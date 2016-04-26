@@ -27,4 +27,8 @@ class User extends Authenticatable
     public function city() {
         return $this->hasOne('App\City');
     }
+
+    public function hobby() {
+        return $this->belongsToMany('App\Hobby');
+    }
 }

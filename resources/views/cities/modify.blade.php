@@ -5,24 +5,19 @@
 @section('content')
     <div class="row"></div>
     <div class="row">
-        <form action="/cities/save" method="post" enctype="multipart/form-data">
+        <form action="/cities/update" method="post" enctype="multipart/form-data">
             <div class="col m6 s12 offset-m3 white z-depth-1">
                 {{ csrf_field() }}
-                <h2>Add a new city:</h2>
+                <h2>Update:</h2>
+                <input type="hidden" name="id" value="{{ $city->id }}">
                 <div class="input-field col s12">
                     <input type="text" id="name" name="name" value="{{ $city->name }}">
                     <label for="name">Name of the city</label>
                 </div>
                 <div class="col s12" id="map-picker" style="height : 500px;"></div>
+                <input type="hidden" id="city-lat" name="city-lat">
+                <input type="hidden" id="city-lon" name="city-lon">
                 <div class="row"></div>
-                <div class="input-field col s6">
-                    <input type="text" id="city-lat" name="city-lat" disabled>
-                    <label for="city-lat">Latitude</label>
-                </div>
-                <div class="input-field col s6">
-                    <input type="text" id="city-lon" name="city-lon" disabled>
-                    <label for="city-lon">Longitude</label>
-                </div>
                 <div class="input-field col s12">
                     <textarea id="description" name="description" class="materialize-textarea">{{ $city->description }}</textarea>
                     <label for="description">Describe the city</label>
@@ -49,10 +44,10 @@
 
 @section('script')
     <?php
-        $loc = explode(', ', $city->location);
+        $loc = explode(',', $city->location);
     ?>
     $('#map-picker').locationpicker({
-    location: {latitude: {{ $loc[0] }}, {{ $loc[1] }},
+    location: {latitude: {{ $loc[0] }}, longitude: {{ $loc[1] }}},
     radius: 1000,
     inputBinding: {
     latitudeInput: $('#city-lat'),

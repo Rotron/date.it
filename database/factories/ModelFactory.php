@@ -12,11 +12,29 @@
 */
 
 $factory->define(App\User::class, function (Faker\Generator $faker) {
+    $rand1 = rand(0, 1);
+    $rand2 = rand(0, 2);
+    switch ($rand2) {
+        case 0 :
+            $l = 'm';
+            break;
+        case 1 :
+            $l = 'f';
+            break;
+        case 2 :
+            $l = 'b';
+            break;
+    }
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+        'city_id' => rand(1, 2),
+        'sex' => ($rand1 ? 'm' : 'f'),
+        'looking_for' => $l,
+        'admin' => false,
+        'picture' => 'dummy.jpg'
     ];
 });
 
