@@ -9,6 +9,7 @@
 
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
@@ -17,7 +18,6 @@
             <div class="nav-wrapper container">
                 <a href="/" class="brand-logo left">Date.it</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="/cities">Cities</a></li>
                     @if(Auth::check())
                         <li><a href="/users/discover">Show me some people!</a></li>
                         <li>
@@ -80,6 +80,7 @@
         </div>
     </footer>
     <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0-rc.2/jquery-ui.min.js"></script>
     <script type="text/javascript" src='http://maps.google.com/maps/api/js?libraries=places&key=AIzaSyC0sG784JzY4pKHLAxdvCS-yweQBGUwOeU'></script>
     <script src="/js/all.js"></script>
     <script>
@@ -88,8 +89,9 @@
             $('.slider').slider();
             $('select').material_select();
             $('.modal-trigger').leanModal();
+            $("#ui-datepicker").datepicker();
         });
-        @yield('script')
+        @yield('scripts')
     </script>
 </body>
 </html>

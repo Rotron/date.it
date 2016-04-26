@@ -48,6 +48,12 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/hobbies/removeFromUser/{id}', 'HobbiesController@removeFromUser');
 
         Route::post('/messages/send', 'MessagesController@send');
+        Route::get('/messages/delete/{id}', 'MessagesController@delete');
+
+        Route::get('/dates/create/{id}', 'DatesController@create');
+        Route::post('/dates/save', 'DatesController@save');
+        Route::get('/dates/delete/{id}', 'DatesController@delete');
+        Route::get('/dates/accept/{id}', 'DatesController@accept');
     });
     
     Route::group(['middleware' => 'admin'], function(){

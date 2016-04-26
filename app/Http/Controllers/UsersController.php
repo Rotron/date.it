@@ -20,7 +20,17 @@ class UsersController extends Controller
         $cities = City::all();
         $messages_sent = $user->messages_sent();
         $messages_received = $user->messages_received();
-        return view('users.home', ['user' => $user, 'hobbies' => $hobbies, 'cities' => $cities, 'messages_sent' => $messages_sent, 'messages_received' => $messages_received]);
+        $dates_proposed = $user->dates_proposed();
+        $dates_offered = $user->dates_offered();
+        return view('users.home', [
+                'user' => $user,
+                'hobbies' => $hobbies,
+                'cities' => $cities,
+                'messages_sent' => $messages_sent,
+                'messages_received' => $messages_received,
+                'dates_offered' => $dates_offered,
+                'dates_proposed' => $dates_proposed
+        ]);
     }
 
     public function create() {
@@ -33,14 +43,17 @@ class UsersController extends Controller
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'sex' => $request->input('sex'),
+            'city_id' => $request->input('city_id'),
             'looking_for' => $request->input('looking_for'),
             'password' => Hash::make($request->input('password')),
             'admin' => false
         ]);
 
-        $picture = $request->file('picture');
-        $picture->move(public_path() . '/img/users/', $user->id.'.jpg');
-        $user->picture = $user->id.'.jpg';
+        if($request->file('picture')){
+            $picture = $request->file('picture');
+            $picture->move(public_path() . '/img/users/', $user->id.'.jpg');
+            $user->picture = $user->id.'.jpg';
+        }
 
         $user->save();
         Auth::login($user);

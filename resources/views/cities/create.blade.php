@@ -41,7 +41,7 @@
     </div>
 @stop
 
-@section('script')
+@section('scripts')
     $('#map-picker').locationpicker({
     location: {latitude: 52.3337198, longitude: -6.5082094},
     radius: 1000,

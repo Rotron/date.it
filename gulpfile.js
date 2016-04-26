@@ -13,6 +13,6 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.sass('app.scss')
-        .scripts(['bin/materialize.js', 'bin/locationpicker.jquery.min.js'])
+        .scripts(['bin/materialize.js', 'date_picker/picker.js', 'date_picker/picker.date.js', 'bin/locationpicker.jquery.min.js'])
         .copy('font', 'public/font');
 });

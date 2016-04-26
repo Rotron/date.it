@@ -17,8 +17,15 @@ class MessagesController extends Controller
             'from' => Auth::user()->id,
             'to' => $request->input('to'),
             'topic' => $request->input('topic'),
-            'content' => $request->input('body')
+            'body' => $request->input('body')
         ]);
+
+        return redirect('/users/home');
+    }
+
+    public function delete($id) {
+        $message = Message::find($id);
+        $message->delete();
 
         return redirect('/users/home');
     }

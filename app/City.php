@@ -9,7 +9,7 @@ class City extends Model
     //
     protected $fillable = ['name', 'location', 'description'];
 
-    public function leases() {
-        return $this->hasMany('App\Lease');
+    public function user() {
+        return $this->hasMany('App\User');
     }
 }

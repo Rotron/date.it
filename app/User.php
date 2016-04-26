@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Carbon\Carbon;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Auth;
 
@@ -26,7 +27,7 @@ class User extends Authenticatable
     ];
 
     public function city() {
-        return $this->hasOne('App\City');
+        return $this->belongsTo('App\City');
     }
 
     public function hobby() {
@@ -43,5 +44,19 @@ class User extends Authenticatable
         $messages = Message::where('to', $this->id)->get();
 
         return $messages;
+    }
+
+    public function dates_proposed() {
+        $dates = Date::where('proposed_by', $this->id)
+                        ->where('date', '>', Carbon::today())
+                        ->get();
+        return $dates;
+    }
+
+    public function dates_offered() {
+        $dates = Date::where('proposed_to', $this->id)
+            ->where('date', '>', Carbon::today())
+            ->get();
+        return $dates;
     }
 }
