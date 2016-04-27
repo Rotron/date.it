@@ -9,10 +9,10 @@ environment. However, you can get in touch with me if this kind of application i
 
 ## Specifications
 
-+Laravel for the back-end
-+Materialize for the styling
-+A dash of JQuery
-+Google Maps API
++ Laravel for the back-end
++ Materialize for the styling
++ A dash of JQuery
++ Google Maps API
 
 ## How to use it
 
