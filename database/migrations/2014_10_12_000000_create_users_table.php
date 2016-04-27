@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('sex');
             $table->string('looking_for');
             $table->string('password');
-            $table->integer('city_id');
+            $table->integer('city_id')->default(1);
             $table->boolean('admin');
             $table->rememberToken();
             $table->timestamps();

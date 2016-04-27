@@ -43,6 +43,7 @@ $factory->define(App\City::class, function(\Faker\Generator $faker){
     return [
        'name' => $address->city(),
        'location' => $address->latitude().','.$address->longitude(),
-       'description' => $faker->text(200)
+       'description' => $faker->text(200),
+        'picture' => 'dummy.jpg'
     ];
 });
