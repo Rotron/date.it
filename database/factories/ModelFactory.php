@@ -30,7 +30,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
         'email' => $faker->safeEmail,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
-        'city_id' => rand(1, 2),
+        'city_id' => rand(1, 10),
         'sex' => ($rand1 ? 'm' : 'f'),
         'looking_for' => $l,
         'admin' => false,
