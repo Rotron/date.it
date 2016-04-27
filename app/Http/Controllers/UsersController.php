@@ -104,8 +104,8 @@ class UsersController extends Controller
                                 ->get();
         }
         else {
-            $potentials = User::where('looking_for', $user->sex)
-                                ->where('sex', $user->looking_for)
+            $potentials = User::where('sex', $user->looking_for)
+                                ->where('looking_for', $user->sex)
                                 ->where('city_id', $user->city_id)
                                 ->get();
         }
