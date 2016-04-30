@@ -16,7 +16,7 @@
     <header>
         <nav>
             <div class="nav-wrapper container">
-                <a href="/" class="brand-logo left">Date.it</a>
+                <a href="/" class="brand-logo center">Date.it</a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     @if(Auth::check())
                         <li><a href="/users/discover">Show me some people!</a></li>
@@ -29,15 +29,17 @@
                         </li>
 
                     @else
-                        <li><a class="dropdown-button" href="#!" data-activates="users-dropdown">Account<i class="material-icons right">arrow_drop_down</i></a></li>
+                        <li><a class="dropdown-button right" href="#!" data-activates="users-dropdown">Account<i class="material-icons right">arrow_drop_down</i></a></li>
                     @endif
                 </ul>
+                <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
             </div>
             <ul id="users-dropdown" class="dropdown-content">
                 <li><a href="/users/create">Join</a></li>
                 <li><a href="/users/login">Log In</a></li>
             </ul>
             <ul id="logged-dropdown" class="dropdown-content">
+
                 <li><a href="/users/home">Home</a></li>
                 <li><a href="/users/logout">Log Out</a></li>
                 @if(Auth::check())
@@ -45,6 +47,20 @@
                         <hr>
                         <li><a href="/admin/home">Administration</a></li>
                     @endif
+                @endif
+            </ul>
+            <ul class="side-nav" id="mobile-nav">
+                @if(Auth::check())
+                    <li><a href="/users/discover">Show me some people!</a></li>
+                    <li><a href="/users/home">Home</a></li>
+                    <li><a href="/users/logout">Log Out</a></li>
+                    @if(Auth::user()->admin)
+                        <hr>
+                        <li><a href="/admin/home">Administration</a></li>
+                    @endif
+                @else
+                    <li><a href="/users/create">Join</a></li>
+                    <li><a href="/users/login">Log In</a></li>
                 @endif
             </ul>
         </nav>
@@ -90,6 +106,7 @@
             $('select').material_select();
             $('.modal-trigger').leanModal();
             $("#ui-datepicker").datepicker();
+            $(".button-collapse").sideNav();
         });
         @yield('scripts')
     </script>
